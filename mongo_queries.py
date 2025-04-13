@@ -15,6 +15,21 @@ db = client['Invoice_Generator']
 customers = db['customer_data']
 products = db['product_data']
 
+# Add these new functions
+def list_all_customers():
+    try:
+        return [doc['Name'] for doc in customers.find({}, {'Name': 1})]
+    except Exception as e:
+        print(f"Error listing customers: {str(e)}")
+        return []
+
+def list_all_products():
+    try:
+        return [doc['name'] for doc in products.find({}, {'name': 1})]
+    except Exception as e:
+        print(f"Error listing products: {str(e)}")
+        return []
+
 def get_customer_by_name(original_name):
     try:
         # Normalize whitespace and special characters

@@ -2,9 +2,9 @@ import re
 
 def parse_invoice_command(text):
     try:
-        # Improved pattern to handle multiple products with exact splitting
+        # Match command format with flexible text
         match = re.match(
-            r'^/generate\s+invoice\s+for\s+(.+?)\s*:\s*(.+)$', 
+            r'^/generate\s+invoice\s+for\s+(.+?)\s*:\s*(.+)', 
             text, 
             re.IGNORECASE
         )
@@ -17,17 +17,20 @@ def parse_invoice_command(text):
         # Clean customer name
         customer = re.sub(r'\s+', ' ', customer_part.strip()).title()
         
-        # Split products while preserving multi-word names
+        # Improved product-quantity parsing with lookahead for quantities
         products = []
-        for item in re.split(r',\s*(?=\d+\s)', products_part):
-            item = item.strip()
-            if not item:
+        # Split on numbers followed by whitespace (potential quantities)
+        parts = re.split(r'(?<=\D)(?=\s*\d+\s)', products_part)
+        
+        for part in parts:
+            part = part.strip()
+            if not part:
                 continue
                 
-            # Match quantity and product (including numbers and spaces)
-            product_match = re.fullmatch(r'\s*(\d+)\s+(.+)\s*', item)
-            if product_match:
-                qty, product = product_match.groups()
+            # Match first quantity in each segment
+            match = re.match(r'^\D*?(\d+)\s+(.+)$', part)
+            if match:
+                qty, product = match.groups()
                 products.append((product.strip(), int(qty)))
         
         return {

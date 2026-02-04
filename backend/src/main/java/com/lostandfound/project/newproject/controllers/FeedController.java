@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-
-public class LoginController {
-    @GetMapping("/login")
-    public String getMethodName(@RequestParam String param) {
-        return "Login successful for user: " + param;
+public class FeedController {
+    @GetMapping("/getfeed")
+    public String getMethodName(@RequestParam String location) {
+        return "Feed for location: " + location;
     }
     
+    
+
     
 }

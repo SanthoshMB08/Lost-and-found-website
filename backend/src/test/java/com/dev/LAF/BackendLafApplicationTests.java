@@ -1,10 +1,10 @@
-package com.lostandfound.project.newproject;
+package com.dev.LAF;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NewprojectApplicationTests {
+class BackendLafApplicationTests {
 
 	@Test
 	void contextLoads() {

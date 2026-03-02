@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BackendLafApplication<newproject>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.dev.LAF.BackendLafApplication",
+            "projectName": "newproject",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

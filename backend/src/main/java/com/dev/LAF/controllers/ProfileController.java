@@ -4,6 +4,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
 
 
 @RestController
@@ -27,5 +32,20 @@ public class ProfileController {
     public String getFollowing(@RequestParam String param) {
         return new String();
     }
+    @PutMapping("/update-profile")
+    public String updateProfile(@RequestParam String param) {
+        return new String();
+    }
+    @PutMapping("/update-following")
+    public String updateFollowing( @RequestBody String entity) {
+        
+        return entity;
+    }
+    @PutMapping("/update-follower")
+    public String updateFollower( @RequestBody String entity) {
+        
+        return entity;
+    }
+    
     
 }

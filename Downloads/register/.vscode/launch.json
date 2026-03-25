@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RegisterApplication<register>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "stupid.hackthon.register.RegisterApplication",
+            "projectName": "register",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
